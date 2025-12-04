@@ -55,52 +55,52 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="min-h-screen flex items-center justify-center px-6 py-20">
+    <section id="experience" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-20">
       <div className="max-w-5xl w-full">
-        <div className="mb-12">
-          <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+        <div className="mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             Experience
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-base sm:text-lg">
             Professional journey and key accomplishments
           </p>
         </div>
 
         <div className="relative">
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500" />
+          <div className="hidden sm:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {experiences.map((exp) => (
-              <div key={exp.id} className="relative pl-20">
-                <div className={`absolute left-6 top-2 w-5 h-5 bg-gradient-to-br ${exp.color} rounded-full border-4 border-gray-950`} />
+              <div key={exp.id} className="relative sm:pl-20">
+                <div className={`hidden sm:block absolute left-6 top-2 w-5 h-5 bg-gradient-to-br ${exp.color} rounded-full border-4 border-gray-950`} />
 
-                <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition-all group">
-                  <div className="flex flex-wrap items-start justify-between mb-2">
+                <div className="bg-gray-900 border border-gray-800 rounded-xl p-4 sm:p-6 hover:border-gray-700 transition-all group">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 sm:mb-2 gap-2">
                     <div>
-                      <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
                         {exp.role}
                       </h3>
-                      <div className="flex items-center gap-2 text-gray-400 mt-1">
-                        <Briefcase size={16} />
+                      <div className="flex flex-wrap items-center gap-2 text-gray-400 mt-1 text-sm sm:text-base">
+                        <Briefcase size={14} className="sm:w-4 sm:h-4" />
                         <span>{exp.company}</span>
                         <span className="text-gray-600">•</span>
                         <span>{exp.location}</span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-blue-400 text-sm mt-2 md:mt-0">
-                      <Calendar size={16} />
+                    <div className="flex items-center gap-2 text-blue-400 text-xs sm:text-sm">
+                      <Calendar size={14} className="sm:w-4 sm:h-4" />
                       <span>{exp.period}</span>
                     </div>
                   </div>
 
-                  <p className="text-gray-400 mb-4">
+                  <p className="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">
                     {exp.description}
                   </p>
 
                   <ul className="space-y-2">
                     {exp.achievements.map((achievement, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-gray-300 text-sm">
-                        <span className="text-blue-400 mt-1">▹</span>
+                      <li key={idx} className="flex items-start gap-2 sm:gap-3 text-gray-300 text-xs sm:text-sm">
+                        <span className="text-blue-400 mt-1 flex-shrink-0">▹</span>
                         <span>{achievement}</span>
                       </li>
                     ))}

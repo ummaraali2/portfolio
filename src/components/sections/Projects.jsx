@@ -88,50 +88,50 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="min-h-screen flex items-center justify-center px-6 py-20">
+    <section id="projects" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-20">
       <div className="max-w-7xl w-full">
-        <div className="mb-12">
-          <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+        <div className="mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             Projects
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-base sm:text-lg">
             A collection of projects showcasing full-stack development
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {projects.map((project) => (
-            <div key={project.id} className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition-all group">
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+            <div key={project.id} className="bg-gray-900 border border-gray-800 rounded-xl p-4 sm:p-6 hover:border-gray-700 transition-all group">
+              <div className="flex justify-between items-start mb-3 sm:mb-4">
+                <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
                   {project.title}
                 </h3>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-shrink-0 ml-2">
                   <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400">
-                    <Github size={20} />
+                    <Github size={18} className="sm:w-5 sm:h-5" />
                   </a>
                   {project.videos.length > 0 && (
                     <button onClick={() => setShowModal({ type: 'videos', project })} className="text-gray-400 hover:text-blue-400">
-                      <Play size={20} />
+                      <Play size={18} className="sm:w-5 sm:h-5" />
                     </button>
                   )}
                   {project.images.length > 0 && (
                     <button onClick={() => setShowModal({ type: 'images', project })} className="text-gray-400 hover:text-blue-400">
-                      <ImageIcon size={20} />
+                      <ImageIcon size={18} className="sm:w-5 sm:h-5" />
                     </button>
                   )}
                 </div>
               </div>
 
               {project.organization && (
-                <div className="text-sm text-blue-400 mb-3">{project.organization}</div>
+                <div className="text-xs sm:text-sm text-blue-400 mb-2 sm:mb-3">{project.organization}</div>
               )}
 
-              <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+              <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">{project.description}</p>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {project.skills.map((skill, index) => (
-                  <span key={index} className="px-3 py-1 text-xs bg-gray-800 text-gray-300 rounded-full">
+                  <span key={index} className="px-2 sm:px-3 py-1 text-xs bg-gray-800 text-gray-300 rounded-full">
                     {skill}
                   </span>
                 ))}
@@ -140,51 +140,41 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="p-8 bg-gray-900 border border-gray-800 rounded-xl">
-            <h3 className="text-2xl font-bold text-white mb-3">More Projects Available</h3>
-            <p className="text-gray-400 mb-6">Explore my complete portfolio on GitHub</p>
-            <a href="https://github.com/ummaraali2" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-lg">
-              <Github size={20} />
+        <div className="mt-12 sm:mt-16 text-center px-4">
+          <div className="p-6 sm:p-8 bg-gray-900 border border-gray-800 rounded-xl">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">More Projects Available</h3>
+            <p className="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base">Explore my complete portfolio on GitHub</p>
+            <a href="https://github.com/ummaraali2" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-blue-500 text-white rounded-lg text-sm sm:text-base">
+              <Github size={18} className="sm:w-5 sm:h-5" />
               Visit GitHub
-              <ExternalLink size={18} />
+              <ExternalLink size={16} className="sm:w-4 sm:h-4" />
             </a>
           </div>
         </div>
 
         {showModal && (
           <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4" onClick={() => setShowModal(null)}>
-            <div className="bg-gray-900 rounded-xl max-w-6xl w-full max-h-screen overflow-auto p-6" onClick={(e) => e.stopPropagation()}>
-              <div className="flex justify-between mb-6">
-                <h3 className="text-2xl font-bold text-white">{showModal.project.title}</h3>
-                <button onClick={() => setShowModal(null)} className="text-white text-3xl hover:text-gray-400">×</button>
+            <div className="bg-gray-900 rounded-xl max-w-6xl w-full max-h-screen overflow-auto p-4 sm:p-6" onClick={(e) => e.stopPropagation()}>
+              <div className="flex justify-between mb-4 sm:mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-white pr-4">{showModal.project.title}</h3>
+                <button onClick={() => setShowModal(null)} className="text-white text-2xl sm:text-3xl hover:text-gray-400 flex-shrink-0">×</button>
               </div>
 
               {showModal.type === 'videos' && (
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   {showModal.project.videos.map((video, idx) => (
-                    <div key={idx} className="bg-gray-800 rounded-lg p-4">
-                      <h4 className="text-white font-semibold mb-3">Demo Video {idx + 1}</h4>
-                      <div className="relative" style={{ maxHeight: '400px' }}>
-                        <video 
-                          controls 
-                          className="w-full rounded-lg"
-                          style={{ maxHeight: '400px', objectFit: 'contain' }}
-                          preload="metadata"
-                        >
+                    <div key={idx} className="bg-gray-800 rounded-lg p-3 sm:p-4">
+                      <h4 className="text-white font-semibold mb-2 sm:mb-3 text-sm sm:text-base">Demo Video {idx + 1}</h4>
+                      <div className="relative">
+                        <video controls className="w-full rounded-lg" style={{ maxHeight: '400px', objectFit: 'contain' }} preload="metadata">
                           <source src={video} type="video/mp4" />
                           <source src={video} type="video/quicktime" />
                           Your browser does not support video playback.
                         </video>
                       </div>
-                      <a 
-                        href={video} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 mt-3 text-blue-400 hover:text-blue-300 text-sm"
-                      >
+                      <a href={video} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-2 sm:mt-3 text-blue-400 hover:text-blue-300 text-xs sm:text-sm">
                         Open in new tab
-                        <ExternalLink size={16} />
+                        <ExternalLink size={14} className="sm:w-4 sm:h-4" />
                       </a>
                     </div>
                   ))}
@@ -192,24 +182,14 @@ const Projects = () => {
               )}
 
               {showModal.type === 'images' && (
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   {showModal.project.images.map((image, idx) => (
-                    <div key={idx} className="bg-gray-800 rounded-lg p-4">
-                      <h4 className="text-white font-semibold mb-3">Screenshot {idx + 1}</h4>
-                      <img 
-                        src={image} 
-                        alt={`${showModal.project.title} screenshot ${idx + 1}`}
-                        className="w-full rounded-lg"
-                        style={{ maxHeight: '600px', objectFit: 'contain' }}
-                      />
-                      <a 
-                        href={image} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 mt-3 text-blue-400 hover:text-blue-300 text-sm"
-                      >
+                    <div key={idx} className="bg-gray-800 rounded-lg p-3 sm:p-4">
+                      <h4 className="text-white font-semibold mb-2 sm:mb-3 text-sm sm:text-base">Screenshot {idx + 1}</h4>
+                      <img src={image} alt={`${showModal.project.title} screenshot ${idx + 1}`} className="w-full rounded-lg" style={{ maxHeight: '600px', objectFit: 'contain' }} />
+                      <a href={image} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-2 sm:mt-3 text-blue-400 hover:text-blue-300 text-xs sm:text-sm">
                         View full size
-                        <ExternalLink size={16} />
+                        <ExternalLink size={14} className="sm:w-4 sm:h-4" />
                       </a>
                     </div>
                   ))}
