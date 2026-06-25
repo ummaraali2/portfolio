@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 106.25%;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans text-body antialiased;
+  }
+
+  ::selection {
+    background: #E7E5E4;
+    color: #1c1917;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ink;
+  }
+}
+
+@layer components {
+  .link {
+    @apply text-ink hover:underline underline-offset-[3px] decoration-stone/50 transition-colors;
+  }
+
+  .rule {
+    @apply border-t border-line;
+  }
+
+  .expand-grid {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .expand-grid.open {
+    grid-template-rows: 1fr;
+  }
+
+  .expand-inner {
+    overflow: hidden;
+  }
+
+  .snap-carousel {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .snap-carousel::-webkit-scrollbar {
+    display: none;
+  }
+}
