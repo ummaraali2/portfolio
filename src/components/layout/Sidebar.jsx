@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { profile, nav } from '../../data/content';
+import ContactModal from '../ui/ContactModal';
 
 const Sidebar = ({ activeSection }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   useEffect(() => {
     const close = () => setMobileOpen(false);
@@ -34,6 +36,16 @@ const Sidebar = ({ activeSection }) => {
 
   const contact = (
     <div className="space-y-1 text-[0.9375rem]">
+      <button
+        type="button"
+        onClick={() => {
+          setContactOpen(true);
+          setMobileOpen(false);
+        }}
+        className="link block text-left"
+      >
+        Contact me
+      </button>
       <a href={profile.github} target="_blank" rel="noopener noreferrer" className="link block">
         GitHub
       </a>
@@ -83,6 +95,8 @@ const Sidebar = ({ activeSection }) => {
           {contact}
         </div>
       </aside>
+
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </>
   );
 };
