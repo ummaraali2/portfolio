@@ -1,0 +1,20 @@
+{
+  "short_name": "Ummara Ali",
+  "name": "Ummara Ali Syeda — Portfolio",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "180x180"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#FAF8F5",
+  "background_color": "#FAF8F5"
+}
