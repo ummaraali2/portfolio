@@ -4,7 +4,7 @@ export const profile = {
   descriptors: [
     'Data & informatics',
     'Turning business needs into software people rely on',
-    'Crocheter by night',
+    'Crocheter',
   ],
   github: 'https://github.com/ummaraali2',
   linkedin: 'https://www.linkedin.com/in/ummara-ali-syeda-157469219/',

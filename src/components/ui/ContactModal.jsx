@@ -8,6 +8,7 @@ const ContactModal = ({ open, onClose }) => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const dialogRef = useRef(null);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ const ContactModal = ({ open, onClose }) => {
   useEffect(() => {
     if (!open) {
       setStatus('idle');
+      setErrorMessage('');
       setName('');
       setEmail('');
       setMessage('');
@@ -43,25 +45,30 @@ const ContactModal = ({ open, onClose }) => {
     setStatus('sending');
 
     try {
+      const formData = new FormData();
+      formData.append('access_key', ACCESS_KEY);
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('replyto', email);
+      formData.append('message', message);
+      formData.append('subject', 'Portfolio contact');
+      formData.append('from_name', 'Portfolio — Ummara Ali Syeda');
+      formData.append('botcheck', '');
+
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: ACCESS_KEY,
-          name,
-          email,
-          message,
-          subject: 'Portfolio contact',
-        }),
+        body: formData,
       });
 
       const data = await res.json();
       if (data.success) {
         setStatus('sent');
       } else {
+        setErrorMessage(data.message || 'Something went wrong. Please try again.');
         setStatus('error');
       }
     } catch {
+      setErrorMessage('Network error. Please check your connection and try again.');
       setStatus('error');
     }
   };
@@ -160,7 +167,7 @@ const ContactModal = ({ open, onClose }) => {
             </div>
 
             {status === 'error' && (
-              <p className="text-sm text-stone">Something went wrong. Please try again.</p>
+              <p className="text-sm text-stone">{errorMessage}</p>
             )}
 
             <button
