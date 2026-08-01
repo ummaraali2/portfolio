@@ -32,9 +32,10 @@ export const projects = [
     id: 'spotme',
     title: 'SpotMe',
     description:
-      'Open-vocabulary object detection PWA. Type any object, scan via live camera or uploaded video, and auto-capture every match with bounding boxes.',
+      'Type what you\'re looking for, like "watch", "red backpack", or "raccoon", and point your phone. SpotMe scans your live camera or an uploaded video and auto-snapshots every match, boxed and timestamped.',
+    community: 'No trained model, no fixed classes. It detects whatever you name, zero-shot.',
     detail:
-      'Next.js 14 with dual-mode scanning architecture (live camera at 2 fps and seek-based video sampling). getUserMedia, Canvas 2D, Screen Wake Lock API, and URL.createObjectURL. Zero-shot detection via YOLO-World on Roboflow Serverless API with backpressure control and cost instrumentation.',
+      'Built on Next.js with two scanning modes: a live camera loop and seek-based video sampling, both feeding one shared detection pipeline. Detection is zero-shot via YOLO-World on Roboflow\'s serverless API, with the key proxied server-side. Designed around real mobile constraints: frame downscaling for bandwidth, request backpressure so slow networks don\'t pile up, and per-frame cost instrumentation pulled from API response headers.',
     stack: 'Next.js · React · Roboflow API · YOLO-World · Vercel',
     live: 'https://spotmee.vercel.app',
     github: 'https://github.com/ummaraali2/spotme',
