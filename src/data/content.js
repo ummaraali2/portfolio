@@ -16,6 +16,19 @@ export const profile = {
 
 export const projects = [
   {
+    id: 'backline',
+    title: 'Backline',
+    description:
+      'Runtime behavior testing for pull requests. Deploys both PR and base branches as isolated environments, runs configurable probes, and diffs what actually changed in runtime behavior.',
+    community: 'Published on npm and GitHub Marketplace. Open-source tool for catching behavioral regressions that unit tests miss.',
+    detail:
+      'TypeScript and Node.js with Docker Compose orchestration. Git worktrees for isolated branch deployments. Four probe types: REST/GraphQL APIs, CLI tools, schema introspection, and database queries. Sophisticated field-level diff engine with ignore patterns for timestamps and auto-generated IDs. Automated PR comment reports.',
+    stack: 'TypeScript · Node.js · Docker · GitHub Actions · Jest',
+    live: 'https://www.npmjs.com/package/@backlinedev/backline',
+    github: 'https://github.com/marketplace/actions/backline-runtime-diff',
+    images: ['backline-1.png', 'backline-2.png'],
+  },
+  {
     id: 'postscholar',
     title: 'PostScholar',
     description:
